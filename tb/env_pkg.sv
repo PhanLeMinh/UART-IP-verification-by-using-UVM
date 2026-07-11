@@ -7,8 +7,8 @@ package env_pkg;
     import ahb_pkg::*;
 
     // Include file
-    `include "scoreboard.sv"
-    `include "enviroment.sv"
+    `include "uart_scoreboard.sv"
+    `include "uart_enviroment.sv"
 endpackage
 
 `endif
