@@ -21,7 +21,7 @@ module testbench;
                    .HSEL(ahb_vif.HSEL),
                    .HREADYOUT(ahb_vif.HREADYOUT), 
                    .HRDATA(ahb_vif.HRDATA), 
-                   .HRESP(ahb_vif.HRESP)
+                   .HRESP(ahb_vif.HRESP),
                    .uart_rxd(uart_vif.rx),
                    .uart_txd(uart_vif.tx));
     
@@ -35,7 +35,7 @@ module testbench;
 
     initial begin
         ahb_vif.HCLK = 0;
-        always #5 ahb_vif.HCLK = ~ahb_vif.HCLK;
+        forever #5 ahb_vif.HCLK = ~ahb_vif.HCLK;
     end
 
     initial begin

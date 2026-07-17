@@ -39,7 +39,7 @@ class uart_agent extends uvm_agent;
             driver    = uart_driver::type_id::create("driver",this);
             sequencer = uart_sequencer::type_id::create("sequencer",this);
             uvm_config_db#(virtual uart_if)::set(this,"driver","vif",vif);
-            uvm_config_db#(uart_configuration)::set(this,"driver","uart_cfg",cfg);
+            uvm_config_db#(uart_configuration)::set(this,"driver","cfg",cfg);
         end
     endfunction:build_phase
 
