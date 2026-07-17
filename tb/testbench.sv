@@ -5,6 +5,7 @@ module testbench;
     // ** Instance interface
 
     ahb_if ahb_vif();
+    uart_if uart_vif();
     
     // ** Interconnect
     uart_top u_dut(
@@ -25,6 +26,7 @@ module testbench;
     // ** Set the VIP interface on the enviroment
     initial begin
         uvm_config_db#(virtual ahb_if)::set(null,"uvm_test_top","ahb_vif",ahb_vif);
+        uvm_config_db#(virtual uart_if)::set(null,"uvm_test_top","uart_vif",uart_vif);
         // ** Start the UVM test
         run_test();
     end

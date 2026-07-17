@@ -13,7 +13,7 @@ class uart_base_test extends uvm_test;
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        `uvm_info(get_type_id(),"Entered...", UVM_HIGH)
+        `uvm_info(get_type_name(),"Entered...", UVM_HIGH)
 
         if(!uvm_config_db#(virtual ahb_if)::get(this,"","ahb_vif",ahb_vif))
             `uvm_fatal(get_type_name(),"Failed to get ahb_vif from uvm_config_db")

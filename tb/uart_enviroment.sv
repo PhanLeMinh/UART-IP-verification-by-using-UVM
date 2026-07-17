@@ -45,6 +45,7 @@ class uart_enviroment extends uvm_env;
         uvm_config_db#(virtual ahb_if)::set(this,"ahb_agt","ahb_vif",ahb_vif);
         uvm_config_db#(virtual uart_if)::set(this,"uart_agt","uart_vif",uart_vif);
         uvm_config_db#(uart_configuration)::set(this,"uart_agent","uart_cfg",uart_cfg);
+        uvm_config_db#(uart_configuration)::set(this,"uart_sb","uart_cfg",uart_cfg);
         `uvm_info(get_type_name(),"Exiting...", UVM_HIGH)
     endfunction 
 
@@ -60,7 +61,8 @@ class uart_enviroment extends uvm_env;
         ahb_agt.monitor.item_observed_port.connect(ahb_predictor.bus_in);
 
         // Connect_monitor to scoreboard
-        ahb_agt.monitor.monitor_tx.connect(uart_sb.tx_export);
-        ahb_agt.monitor.monitor_rx.connect(uart_sb.rx_export);
+        uart_agt.monitor.monitor_tx.connect(uart_sb.tx_export);
+        uart_agt.monitor.monitor_rx.connect(uart_sb.rx_export);
+        ahb_agt.monitor.item_observed_port.connect(uart_sb.ahb_export);
     endfunction 
 endclass

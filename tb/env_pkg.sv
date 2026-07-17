@@ -5,6 +5,7 @@ package env_pkg;
     import uvm_pkg::*;
     import uart_pkg::*;
     import ahb_pkg::*;
+    import uart_regmodel_pkg::*;
 
     // Include file
     `include "uart_scoreboard.sv"
