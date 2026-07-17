@@ -5,7 +5,7 @@ class uart_scoreboard extends uvm_scoreboard;
     `uvm_component_utils(uart_scoreboard)
 
     uvm_analysis_imp_tx #(uart_transaction, uart_scoreboard) tx_export;
-    uvm_analysis_imp_tx #(uart_transaction, uart_scoreboard) rx_export;
+    uvm_analysis_imp_rx #(uart_transaction, uart_scoreboard) rx_export;
     uvm_analysis_imp_ahb #(ahb_transaction, uart_scoreboard) ahb_export;
 
     uart_configuration uart_cfg;
@@ -17,7 +17,7 @@ class uart_scoreboard extends uvm_scoreboard;
         super.new(name,parent);
     endfunction
 
-    virtual function void buil_phase(uvm_phase phase);
+    virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         
         if (!uvm_config_db#(uart_configuration)::get(this, "", "uart_cfg", uart_cfg))
@@ -25,8 +25,8 @@ class uart_scoreboard extends uvm_scoreboard;
 
         
         tx_export = new("tx_export",this);
-        rx_export = new("tx_export",this);
-        ahb_export = new("tx_export",this);
+        rx_export = new("rx_export",this);
+        ahb_export = new("ahb_export",this);
         
         `uvm_info(get_type_name(), $sformatf("Build_phase done!"), UVM_LOW)
     endfunction 
@@ -55,11 +55,11 @@ class uart_scoreboard extends uvm_scoreboard;
     function void write_tx(uart_transaction trans);
         if(exp_tx_q.size() == 0) begin
             `uvm_error(get_type_name(), "DATA ERROR")
-        else begin
+        end else begin
             // Compare voi exp_tx_q
             ahb_transaction exp_data = exp_tx_q.pop_front();
             if(trans.data[7:0] == exp_data.data[7:0])
-                `uvm_info(get_type_name(),$sformatf("[PASSED]: DATA MISMATCH"), UVM_LOW)
+                `uvm_info(get_type_name(),$sformatf("[PASSED]: DATA MATCHED"), UVM_LOW)
             else 
                 `uvm_error(get_type_name(),$sformatf("[FAILED]: exp_data = %0h, act_data = %0h", exp_data.data, trans.data ), UVM_LOW)
         end
