@@ -43,8 +43,8 @@ class uart_enviroment extends uvm_env;
         ahb_adapter = uart_reg2ahb_adapter::type_id::create("ahb_adapter");
 
         uvm_config_db#(virtual ahb_if)::set(this,"ahb_agt","ahb_vif",ahb_vif);
-        uvm_config_db#(virtual uart_if)::set(this,"uart_agt","uart_vif",uart_vif);
-        uvm_config_db#(uart_configuration)::set(this,"uart_agt","uart_cfg",uart_cfg);
+        uvm_config_db#(virtual uart_if)::set(this,"uart_agt","vif",uart_vif);
+        uvm_config_db#(uart_configuration)::set(this,"uart_agt","cfg",uart_cfg);
         uvm_config_db#(uart_configuration)::set(this,"uart_sb","uart_cfg",uart_cfg);
         `uvm_info(get_type_name(),"Exiting...", UVM_HIGH)
     endfunction 

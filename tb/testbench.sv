@@ -21,7 +21,9 @@ module testbench;
                    .HSEL(ahb_vif.HSEL),
                    .HREADYOUT(ahb_vif.HREADYOUT), 
                    .HRDATA(ahb_vif.HRDATA), 
-                   .HRESP(ahb_vif.HRESP));
+                   .HRESP(ahb_vif.HRESP)
+                   .uart_rxd(uart_vif.rx),
+                   .uart_txd(uart_vif.tx));
     
     // ** Set the VIP interface on the enviroment
     initial begin
@@ -29,5 +31,16 @@ module testbench;
         uvm_config_db#(virtual uart_if)::set(null,"uvm_test_top","uart_vif",uart_vif);
         // ** Start the UVM test
         run_test();
+    end
+
+    initial begin
+        ahb_vif.HCLK = 0;
+        always #5 ahb_vif.HCLK = ~ahb_vif.HCLK;
+    end
+
+    initial begin
+        ahb_vif.HRESETn = 0;
+        repeat (5) @(posedge ahb_vif.HCLK);
+        ahb_vif.HRESETn = 1;
     end
 endmodule
