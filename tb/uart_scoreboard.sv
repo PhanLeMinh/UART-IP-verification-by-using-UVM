@@ -61,7 +61,7 @@ class uart_scoreboard extends uvm_scoreboard;
             if(trans.data[7:0] == exp_data.data[7:0])
                 `uvm_info(get_type_name(),$sformatf("[PASSED]: DATA MATCHED"), UVM_LOW)
             else 
-                `uvm_error(get_type_name(),$sformatf("[FAILED]: exp_data = %0h, act_data = %0h", exp_data.data, trans.data ), UVM_LOW)
+                `uvm_error(get_type_name(),$sformatf("[FAILED]: exp_data = %0h, act_data = %0h", exp_data.data, trans.data ))
         end
     endfunction
 
