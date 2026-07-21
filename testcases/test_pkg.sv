@@ -6,4 +6,5 @@ package test_pkg;
 
     // Include file
     `include "uart_base_test.sv"
+    `include "reg_def_test.sv"
 endpackage
