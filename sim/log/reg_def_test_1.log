@@ -1,9 +1,9 @@
 # vsim -sv_seed 1 -voptargs="+acc" -assertdebug -c testbench -do " log -r /*;run -all;" -l reg_def_test_1.log "+UVM_TESTNAME=reg_def_test" "+UVM_VERBOSITY=UVM_HIGH" 
-# Start time: 08:52:48 on Jul 21,2026
-# Loading /tmp/minhphan_0508@ictc-eda-ldap.ipa.test_dpi_95975/linux_x86_64_gcc-11/export_tramp.so
+# Start time: 22:59:13 on Jul 21,2026
+# Loading /tmp/minhphan_0508@ictc-eda-ldap.ipa.test_dpi_122137/linux_x86_64_gcc-11/export_tramp.so
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: ./../tb/testbench.sv(11): (vopt-2685) [TFMPC] - Too few port connections for 'u_dut'.  Expected 16, found 15.
-# ** Warning: ./../tb/testbench.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'interrupt'.
+# ** Warning: ./../tb/testbench.sv(14): (vopt-2685) [TFMPC] - Too few port connections for 'u_dut'.  Expected 16, found 15.
+# ** Warning: ./../tb/testbench.sv(14): (vopt-2718) [TFMPC] - Missing connection for port 'interrupt'.
 # //  Questa Sim-64
 # //  Version 10.6d_1 linux_x86_64 Apr 11 2018
 # //
@@ -20,13 +20,18 @@
 # //
 # Loading sv_std.std
 # Loading work.ahb_if(fast)
+# Loading work.uart_if(fast)
 # Loading work.uvm_pkg(fast)
-# Loading work.ahb_pkg(fast)
+# Loading work.uart_register_pkg(fast)
 # ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
 # This also means that later if you turn on UVM-aware debugging your debug simulations may have
 # different random seeds from your non-debug simulations.
-# Loading work.uart_if(fast)
+# Loading work.ahb_pkg(fast)
+# Loading work.uart_regmodel_pkg(fast)
 # Loading work.uart_pkg(fast)
+# Loading work.env_pkg(fast)
+# Loading work.seq_pkg(fast)
+# Loading work.test_pkg(fast)
 # Loading work.testbench(fast)
 # Loading work.ahb_if(fast)
 # Loading work.uart_if(fast)
@@ -38,9 +43,9 @@
 # Loading work.uart_receiver(fast)
 # Loading work.uart_interrupt(fast)
 # Loading work.baud_generator(fast)
-# Compiling /tmp/minhphan_0508@ictc-eda-ldap.ipa.test_dpi_95975/linux_x86_64_gcc-5.3.0/exportwrapper.c
-# Compiling /tmp/minhphan_0508@ictc-eda-ldap.ipa.test_dpi_95975/linux_x86_64_gcc-11/exportwrapper.c
-# Loading /tmp/minhphan_0508@ictc-eda-ldap.ipa.test_dpi_95975/linux_x86_64_gcc-11/vsim_auto_compile.so
+# Compiling /tmp/minhphan_0508@ictc-eda-ldap.ipa.test_dpi_122137/linux_x86_64_gcc-5.3.0/exportwrapper.c
+# Compiling /tmp/minhphan_0508@ictc-eda-ldap.ipa.test_dpi_122137/linux_x86_64_gcc-11/exportwrapper.c
+# Loading /tmp/minhphan_0508@ictc-eda-ldap.ipa.test_dpi_122137/linux_x86_64_gcc-11/vsim_auto_compile.so
 #  log -r /*
 # run -all
 # UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
@@ -66,23 +71,133 @@
 #       (Specify +UVM_NO_RELNOTES to turn off this notice)
 # 
 # UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(453) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
-# UVM_WARNING @ 0: reporter [BDTYP] Cannot create a component of type 'reg_def_test' because it is not registered with the factory.
-# UVM_FATAL @ 0: reporter [INVTST] Requested test from command line +UVM_TESTNAME=reg_def_test not found.
-# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 0: reporter [UVM/REPORT/SERVER] 
+# UVM_INFO @ 0: reporter [RNTST] Running test reg_def_test...
+# UVM_INFO ./../testcases/uart_base_test.sv(16) @ 0: uvm_test_top [reg_def_test] Entered...
+# UVM_INFO ./../vip/uart_vip/uart_configuration.sv(29) @ 0: reporter [uart_configuration] Set up done!
+# UVM_INFO ./../testcases/uart_base_test.sv(33) @ 0: uvm_test_top [reg_def_test] Exiting...
+# UVM_INFO ./../tb/uart_enviroment.sv(25) @ 0: uvm_test_top.uart_env [uart_enviroment] Entered...
+# UVM_INFO ./../tb/uart_enviroment.sv(49) @ 0: uvm_test_top.uart_env [uart_enviroment] Exiting...
+# UVM_INFO ./../vip/ahb_vip/ahb_agent.sv(20) @ 0: uvm_test_top.uart_env.ahb_agt [ahb_agent] Active agent is configued
+# UVM_INFO ./../vip/uart_vip/uart_agent.sv(27) @ 0: uvm_test_top.uart_env.uart_agt [uart_agent] Configured as PASSIVE agent
+# UVM_INFO ./../tb/uart_scoreboard.sv(31) @ 0: uvm_test_top.uart_env.uart_sb [uart_scoreboard] Build_phase done!
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/base/uvm_traversal.svh(279) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+# UVM_INFO ./../testcases/uart_base_test.sv(37) @ 0: uvm_test_top [reg_def_test] Entered...
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(579) @ 0: reporter [UVMTOP] UVM testbench topology:
+# -----------------------------------------------------------------------------
+# Name                        Type                                  Size  Value
+# -----------------------------------------------------------------------------
+# uvm_test_top                reg_def_test                          -     @347 
+#   uart_env                  uart_enviroment                       -     @367 
+#     ahb_agt                 ahb_agent                             -     @391 
+#       driver                ahb_driver                            -     @514 
+#         rsp_port            uvm_analysis_port                     -     @533 
+#         seq_item_port       uvm_seq_item_pull_port                -     @523 
+#       monitor               ahb_monitor                           -     @680 
+#         item_observed_port  uvm_analysis_port                     -     @689 
+#       sequencer             ahb_sequencer                         -     @543 
+#         rsp_export          uvm_analysis_export                   -     @552 
+#         seq_item_export     uvm_seq_item_pull_imp                 -     @670 
+#         arbitration_queue   array                                 0     -    
+#         lock_queue          array                                 0     -    
+#         num_last_reqs       integral                              32    'd1  
+#         num_last_rsps       integral                              32    'd1  
+#     ahb_predictor           uvm_reg_predictor #(ahb_transaction)  -     @418 
+#       bus_in                uvm_analysis_imp                      -     @427 
+#       reg_ap                uvm_analysis_port                     -     @437 
+#     uart_agt                uart_agent                            -     @400 
+#       monitor               uart_monitor                          -     @714 
+#         monitor_rx          uvm_analysis_port                     -     @723 
+#         monitor_tx          uvm_analysis_port                     -     @733 
+#     uart_sb                 uart_scoreboard                       -     @409 
+#       ahb_export            uvm_analysis_imp_ahb                  -     @770 
+#       rx_export             uvm_analysis_imp_rx                   -     @760 
+#       tx_export             uvm_analysis_imp_tx                   -     @750 
+# -----------------------------------------------------------------------------
+# 
+# UVM_INFO ./../testcases/uart_base_test.sv(39) @ 0: uvm_test_top [reg_def_test] Exiting...
+# UVM_INFO @ 0: reporter@@hw_reset_seq [STARTING_SEQ] 
+# 
+# Starting hw_reset_seq sequence...
+# 
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(130) @ 0: reporter@@hw_reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.MDR in map "regmodel.ahb_map"...
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(22) @ 0: reporter [uart_reg2ahb_adapter] reg2bus: address=0x0, data = 0, kind=READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(22) @ 0: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] Driver received transaction: addr = 000, data = 00000000, xact_type =  READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(100) @ 95000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] READ complete: addr = 000, data = 00000000, rev data = 00000000
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(36) @ 106000: reporter [uart_reg2ahb_adapter] bus2reg: address=0x0, data=0x0, kind=UVM_READ
+# UVM_INFO @ 106000: reporter [RegModel] Read  register via map regmodel.ahb_map: regmodel.MDR=0
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(130) @ 106000: reporter@@hw_reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.DLL in map "regmodel.ahb_map"...
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(22) @ 106000: reporter [uart_reg2ahb_adapter] reg2bus: address=0x4, data = 0, kind=READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(22) @ 106000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] Driver received transaction: addr = 004, data = 00000000, xact_type =  READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(100) @ 155000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] READ complete: addr = 004, data = 00000000, rev data = 00000000
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(36) @ 166000: reporter [uart_reg2ahb_adapter] bus2reg: address=0x4, data=0x0, kind=UVM_READ
+# UVM_INFO @ 166000: reporter [RegModel] Read  register via map regmodel.ahb_map: regmodel.DLL=0
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(130) @ 166000: reporter@@hw_reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.DLH in map "regmodel.ahb_map"...
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(22) @ 166000: reporter [uart_reg2ahb_adapter] reg2bus: address=0x8, data = 0, kind=READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(22) @ 166000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] Driver received transaction: addr = 008, data = 00000000, xact_type =  READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(100) @ 215000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] READ complete: addr = 008, data = 00000000, rev data = 00000000
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(36) @ 226000: reporter [uart_reg2ahb_adapter] bus2reg: address=0x8, data=0x0, kind=UVM_READ
+# UVM_INFO @ 226000: reporter [RegModel] Read  register via map regmodel.ahb_map: regmodel.DLH=0
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(130) @ 226000: reporter@@hw_reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.LCR in map "regmodel.ahb_map"...
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(22) @ 226000: reporter [uart_reg2ahb_adapter] reg2bus: address=0xc, data = 0, kind=READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(22) @ 226000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] Driver received transaction: addr = 00c, data = 00000000, xact_type =  READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(100) @ 275000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] READ complete: addr = 00c, data = 00000000, rev data = 00000000
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(36) @ 286000: reporter [uart_reg2ahb_adapter] bus2reg: address=0xc, data=0x0, kind=UVM_READ
+# UVM_INFO @ 286000: reporter [RegModel] Read  register via map regmodel.ahb_map: regmodel.LCR=0
+# UVM_ERROR /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg.svh(2897) @ 286000: reporter [RegModel] Register "regmodel.LCR" value read from DUT (0x0000000000000000) does not match mirrored value (0x0000000000000003)
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg.svh(2916) @ 286000: reporter [RegModel] Field wls  (regmodel.LCR[1:0]) mismatch read=2'h0 mirrored=2'h3 
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(130) @ 286000: reporter@@hw_reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.IER in map "regmodel.ahb_map"...
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(22) @ 286000: reporter [uart_reg2ahb_adapter] reg2bus: address=0x10, data = 0, kind=READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(22) @ 286000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] Driver received transaction: addr = 010, data = 00000000, xact_type =  READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(100) @ 335000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] READ complete: addr = 010, data = 00000000, rev data = 00000000
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(36) @ 346000: reporter [uart_reg2ahb_adapter] bus2reg: address=0x10, data=0x0, kind=UVM_READ
+# UVM_INFO @ 346000: reporter [RegModel] Read  register via map regmodel.ahb_map: regmodel.IER=0
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(130) @ 346000: reporter@@hw_reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.FSR in map "regmodel.ahb_map"...
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(22) @ 346000: reporter [uart_reg2ahb_adapter] reg2bus: address=0x14, data = 0, kind=READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(22) @ 346000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] Driver received transaction: addr = 014, data = 00000000, xact_type =  READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(100) @ 395000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] READ complete: addr = 014, data = 00000000, rev data = 00000000
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(36) @ 406000: reporter [uart_reg2ahb_adapter] bus2reg: address=0x14, data=0x0, kind=UVM_READ
+# UVM_INFO @ 406000: reporter [RegModel] Read  register via map regmodel.ahb_map: regmodel.FSR=0
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(130) @ 406000: reporter@@hw_reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.TBR in map "regmodel.ahb_map"...
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(22) @ 406000: reporter [uart_reg2ahb_adapter] reg2bus: address=0x18, data = 0, kind=READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(22) @ 406000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] Driver received transaction: addr = 018, data = 00000000, xact_type =  READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(100) @ 455000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] READ complete: addr = 018, data = 00000000, rev data = 00000000
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(36) @ 466000: reporter [uart_reg2ahb_adapter] bus2reg: address=0x18, data=0x0, kind=UVM_READ
+# UVM_INFO @ 466000: reporter [RegModel] Read  register via map regmodel.ahb_map: regmodel.TBR=0
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(130) @ 466000: reporter@@hw_reset_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.RBR in map "regmodel.ahb_map"...
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(22) @ 466000: reporter [uart_reg2ahb_adapter] reg2bus: address=0x1c, data = 0, kind=READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(22) @ 466000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] Driver received transaction: addr = 01c, data = 00000000, xact_type =  READ
+# UVM_INFO ./../vip/ahb_vip/ahb_driver.sv(100) @ 515000: uvm_test_top.uart_env.ahb_agt.driver [ahb_driver] READ complete: addr = 01c, data = 00000000, rev data = 00000000
+# UVM_INFO ./../regmodel/uart_reg2ahb_adapter.sv(36) @ 526000: reporter [uart_reg2ahb_adapter] bus2reg: address=0x1c, data=0x0, kind=UVM_READ
+# UVM_INFO @ 526000: reporter [RegModel] Read  register via map regmodel.ahb_map: regmodel.RBR=0
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1271) @ 526000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 526000: reporter [UVM/REPORT/SERVER] 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :    2
-# UVM_WARNING :    1
-# UVM_ERROR :    0
-# UVM_FATAL :    1
+# UVM_INFO :   66
+# UVM_WARNING :    0
+# UVM_ERROR :    1
+# UVM_FATAL :    0
 # ** Report counts by id
-# [BDTYP]     1
-# [INVTST]     1
 # [NO_DPI_TSTNAME]     1
+# [RNTST]     1
+# [RegModel]    10
+# [STARTING_SEQ]     1
+# [TEST_DONE]     1
+# [UVM/COMP/NAMECHECK]     1
 # [UVM/RELNOTES]     1
+# [UVMTOP]     1
+# [ahb_agent]     1
+# [ahb_driver]    16
+# [reg_def_test]     4
+# [uart_agent]     1
+# [uart_configuration]     1
+# [uart_enviroment]     2
+# [uart_reg2ahb_adapter]    16
+# [uart_scoreboard]     1
+# [uvm_reg_hw_reset_seq]     8
 # 
-# ** Note: $finish    : /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(135)
-#    Time: 0 ns  Iteration: 0  Instance: /testbench
-# End time: 08:52:52 on Jul 21,2026, Elapsed time: 0:00:04
+# ** Note: $finish    : /ictc/other/tools/QuestaDVA/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 526 us  Iteration: 74  Instance: /testbench
+# End time: 22:59:19 on Jul 21,2026, Elapsed time: 0:00:06
 # Errors: 0, Warnings: 2

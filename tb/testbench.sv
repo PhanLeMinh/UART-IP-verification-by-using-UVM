@@ -2,6 +2,9 @@ module testbench;
     import uvm_pkg::*;
     import uart_pkg::*;
     import ahb_pkg::*;
+    import env_pkg::*;
+    import seq_pkg::*;
+    import test_pkg::*;
     // ** Instance interface
 
     ahb_if ahb_vif();

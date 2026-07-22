@@ -95,8 +95,8 @@ class ahb_driver extends uvm_driver #(ahb_transaction);
 
                repeat (2) @(posedge ahb_vif.HCLK);
                #1;
+               @(posedge ahb_vif.HCLK); // clocking block
                rsp.data  = ahb_vif.HRDATA;
-               rsp.data  = req.data;
                `uvm_info(get_type_name(), $sformatf("READ complete: addr = %h, data = %h, rev data = %h", req.addr, req.data, rsp.data), UVM_LOW)
                
                //IDLE

@@ -16,7 +16,7 @@ class uart_enviroment extends uvm_env;
     // Predictor class creation
     uvm_reg_predictor#(ahb_transaction) ahb_predictor;
 
-    function new(string name = "enviroment",uvm_component parent);
+    function new(string name = "uart_enviroment",uvm_component parent);
         super.new(name,parent);            
     endfunction
 
